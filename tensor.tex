@@ -1,0 +1,35 @@
+\documentclass[11pt,notitlepage]{article}
+\usepackage{amsfonts, amsmath, amssymb, amsthm,fullpage,mdwlist,graphicx,cancel}
+\setlength{\textheight}{9.25in}
+\setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{0.0in}
+\setlength{\headheight}{0.0in}
+\setlength{\headsep}{0.0in}
+\setlength{\leftmargin}{0.0in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\parindent}{0pc}
+\everymath{\displaystyle}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{exc}{Exercise}[section]
+\title{Tensors and Co-/Contra- Variance}
+\author{Anish Tondwalkar}
+\date{\today}
+\begin{document}
+\maketitle
+The purpose of this lecture is to help explain, in greater depth, the 5-min intro to tensors Will gave on Thursday, and to lead into a series of lectures on DiffGeo and GR by me and Will.
+\section{Introduction}
+Probably the most intuitive way to start thinking about tensors is to consider them as linear machines that take vectors and spit out a scalar. The simplest thing with this behavior is a 1-form, which is a fuctional takes one vector. Remember these are linear, so they'll satify the relationship 
+$$ \omega \left( \alpha \vec v + \beta \vec w \right) = 
+ \alpha \omega \vec v + \beta \omega \vec w $$
+This is all fair and nice, but we actually want to use a notation here that will be much more convenient when we generalize to higher dimensions. In our notation, a vector $\vec v$ is represented $v^\mu$. Here $\mu$ represents some index.
+Our 1-form will be represented $\omega_\mu$. The application of $\omega$ onto $\vec v$ is represented $ \omega_\mu v^\mu$. That's indicated by the reuse of the index $\mu$, which tell us to sum over the product of the componets for all $\mu$. 
+We can also have 2-forms, which can be formed, for example, by the tensor product of two 1-forms
+$$ A = \omega \otimes \pi $$
+or, in tensor notation,
+$$ A^\mu^\nu = \omega^\mu \pi^nu $$
+As you can see, this 2-form will take two vectors and give you a scalar. If we give it only one vector, it'll need another vector to give us a scalar, so we can say that the application (heneforth ``direct product'') of a 2-form and a vector is a 1-form, much in the way that a tensor  product with a 1-form will give you a 3-form. Haskell programers will recognize this concept as ``currying''.
+Now, it's immediately obvious that we can generalize this and have n-forms, but this is not entirely general. We can think of linear machines that take n-forms (or equivilantly, n 1-forms), and n vectors. These not only take everything else we've talked about here, they also take themselves, so this is as general as we'll need to be. These things will look like this: 
+$$ A^{\mu_0 \mu_1 \mu_2 \mu_3 \ldots}_{\nu_0 \nu_1 \nu_2 \ldots} $$
+\section{Co- and Contra- Variance}
+We note that 1-forms form a dual vector space to our notion of vectors. This raiszes the question of how we tell them apart. We want to chose something consistent with our usual notion of vectors. Turns out the answer comes from the way the behave under coordinate transformations.  
+\end{document}
