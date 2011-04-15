@@ -30,19 +30,19 @@ $\hat\i + \hat\j + \hat k$
  can be written as $\sqrt3 \hat\j$
 \end{exc}
 In order to go from one coordinate system to another, you should know that we use the cosines of the angle between them:
-$$ x^i' = \sum_j x^j \cos(x^j,x^i') $$
+$$ x'^i = \sum_j x^j \cos(x^j,x'^i) $$
 Written with differentials, we have
-$$ dx_i' = \sum_j \frac{\partial x_i'}{\partial x_j} dx_j $$
+$$ dx'_i = \sum_j \frac{\partial x'_i}{\partial x_j} dx_j $$
 Giving us our transformation law for contravariant tensors:
-$$ A'^i = \sum_j \frac{\partial x_i'}{\partial x_j} A^j $$
+$$ A'^i = \sum_j \frac{\partial x'_i}{\partial x_j} A^j $$
 \section{Covariance}
 But that's not all! We know things that transform the other way: gradients:
 $$ \del \psi = \sum_j \frac{\partial \psi}{\partial x_j} \hat x^j $$
  They're our prototype for covariant forms. 
 From the chain rule, we have: 
-$$\frac{\partial \psi}{\partial x^i'} = \sum_j \frac{\partial \psi}{\partial x^j} \frac{\partial x^j}{\partial x^i'} $$
+$$\frac{\partial \psi}{\partial x'^i} = \sum_j \frac{\partial \psi}{\partial x^j} \frac{\partial x^j}{\partial x'^i} $$
 So out covariant transformation law is:
-$$ A_i = \sum_j \frac{\partial x^j}{\partial x^i'} A_j$$
+$$ A_i = \sum_j \frac{\partial x^j}{\partial x'^i} A_j$$
 
 \section{n-forms and Tensors}
 In k-space, we already know that scalars have $k^0=1$ components that are invariant, and that vectors have $k^1=k$ components that use one of these tranformation relations. We can generalize this to something with $k^n$ components that transform in a definte way. n-forms have n covariant indicies, and tensors of rank n, have n indicies of either variance. Therefore, we can say that scalars are tensors of rank 0 and that vectors are contravariant tensors of rank 1. For example a mixed tensor of rank 2 tranforms like this \footnote{Here, we supress the sigmas. See Einstein Notation}:
@@ -54,8 +54,8 @@ This implies that when we have a relationship involing tensors, the number of co
 We know from mechanics that the moment of inerita tensor satifies the relationship:
 $$ L^a = I^a_b \omega^b $$
 We transform the angular momentum to our greeked coordinate system. 
-$$ L^\alpha = T^\alpha_a L^a = T^\alpha_a I^a_b T^{-1}^\beta_bT^\beta_b\omega^b = \left[T^\alpha_a I^a_b T^-1^\beta_b\right]\omega^\beta$$
-So we have the fact that $$I^\alpha_\beta = \left[T^\alpha_a I^a_b T^-1^\beta_b\right]$$
+$$ L^\alpha = T^\alpha_a L^a = T^\alpha_a I^a_b T^b_\beta T^\beta_b\omega^b = \left[T^\alpha_a I^a_b T^-1^\beta_b\right]\omega^\beta$$
+So we have the fact that $$I^\alpha_\beta = \left[T^\alpha_a I^a_b T_\beta^b\right]$$
 Returning to matrix notation, I is transformed by:
 $$I' = T I T^{-1}$$
 \end{document}
