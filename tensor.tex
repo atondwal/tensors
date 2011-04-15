@@ -16,19 +16,32 @@
 \date{\today}
 \begin{document}
 \maketitle
-\section{Introduction}
-Probably the most intuitive way to start thinking about tensors is to consider them as linear machines that take vectors and spit out a scalar. The simplest thing with this behavior is a 1-form, which is a fuctional takes one vector. Remember these are linear, so they'll satify the relationship 
-$$ \omega \left( \alpha \vec v + \beta \vec w \right) = 
- \alpha \omega \vec v + \beta \omega \vec w $$
-This is all fair and nice, but we actually want to use a notation here that will be much more convenient when we generalize to higher dimensions. In our notation, a vector $\vec v$ is represented $v^\mu$. Here $\mu$ represents some index.
-Our 1-form will be represented $\omega_\mu$. The application of $\omega$ onto $\vec v$ is represented $ \omega_\mu v^\mu$. That's indicated by the reuse of the index $\mu$, which tell us to sum over the product of the componets for all $\mu$. 
-We can also have 2-forms, which can be formed, for example, by the tensor product of two 1-forms
-$$ A = \omega \otimes \pi $$
-or, in tensor notation,
-$$ A^\mu^\nu = \omega^\mu \pi^nu $$
-As you can see, this 2-form will take two vectors and give you a scalar. If we give it only one vector, it'll need another vector to give us a scalar, so we can say that the application (heneforth ``direct product'') of a 2-form and a vector is a 1-form, much in the way that a tensor  product with a 1-form will give you a 3-form. Haskell programers will recognize this concept as ``currying''.
-Now, it's immediately obvious that we can generalize this and have n-forms, but this is not entirely general. We can think of linear machines that take n-forms (or equivilantly, n 1-forms), and n vectors. These not only take everything else we've talked about here, they also take themselves, so this is as general as we'll need to be. These things will look like this: 
-$$ A^{\mu_0 \mu_1 \mu_2 \mu_3 \ldots}_{\nu_0 \nu_1 \nu_2 \ldots} $$
-\section{Co- and Contra- Variance}
-We note that 1-forms form a dual vector space to our notion of vectors. This raiszes the question of how we tell them apart. We want to chose something consistent with our usual notion of vectors. Turns out the answer comes from the way the behave under coordinate transformations.  
+In physics all of our measurements are going to correspond to scalars (specifically, real numbers). 
+Futhermore, because our physical measurements can't depend on our mathematical convetions and choice of coordinate system,
+ these scalars muct be the same (invariant) under rotations of the coodinate system.
+\section{Contravariance}
+ Vectors, however, aren't tied to the events we're measuring by their coordinates in our coodinate system, but by their geometric meaning.
+ We can see, by trivial example that a vector transforms `away' from our rotation. 
+Thus we will call things that transform this way `contravariant'
+\footnote{Indicies for contravariant vectors go at the top. This is different from the lower index notation you've probably been using all your life, because in Euclidean spaces, the covariant and contravariant froms of the vector are the same, so we ca just write everything covariantly, because it's less ambigious notation}. 
+\begin{exc}
+Find a coordinate system in which
+$\hat\i + \hat\j + \hat k$
+ can be written as $\sqrt3 \hat\j$
+\end{exc}
+In order to go from one coordinate system to another, you should see that we use the cosines of the angle between them:
+$$ x^i' = \sum_j x^j \cos(x^j,x^i') $$
+Written with differntials, we have
+$$ dx_i' = \sum_j \frac{\partial x_i'}{\partial x_j} dx_j $$
+Giving us our tranformation law for contravariant tensors:
+$$ A^i' = \sum_j \frac{\partial x_i'}{\partial x_j} A^j $$
+\section{Covariance}
+But that's not all! We know things that transform the other way: gradients:
+$$ \del \psi = \sum_j \frac{\partial \psi}{\partial x_j} \hat x^j
+ They're our prototype for the form of a covariant tensor. 
+From the chain rule, we have: 
+$$\frac{\partial \psi}{\partial x^i'} = \sum_j \frac{\partial \psi}{\partial x^j} \frac{\partial x^j}{\partial x^i'} $$
+So out covariant transformation law is:
+$$ A_i = \sum_j \frac{\partial x^j}{\partial x^i'} A_j$$
+  
 \end{document}
