@@ -50,13 +50,5 @@ $$A'^i_j =  \frac{\partial x'^i}{\partial x^k}\frac{\partial x^l}{\partial x'^j}
 \section{Contraction, Direct Products and the Quotient Rule}
 When we take the direct product of two tensors, we add up the covariant indicies and the contravariant indices, and get a tensor of a higher rank. We can contract a covariant index with a contravariant index, to get a tensor of a lower rank by making the indicies the same. This should be obvious from the transformation laws, because when we multiply the tensors, we multiply the components and the coeffiecnts that arrive from the transformation, so the number of these adds, and futhermore, the direction cosine from one vector in the basis with itself is 1. 
 This implies that when we have a relationship involing tensors, the number of covariant and contravariant indices on each side of the qual sign must be the same. This is the quotient rule of tensors.
-\section{Example: Moment of Inertia Tensor}
-We know from mechanics that the moment of inerita tensor satifies the relationship:
-$$ L^a = I^a_b \omega^b $$
-We transform the angular momentum to our greeked coordinate system. 
-$$ L^\alpha = T^\alpha_a L^a = T^\alpha_a I^a_b T^b_\beta T^\beta_b\omega^b = \left[T^\alpha_a I^a_b T^-1^\beta_b\right]\omega^\beta$$
-So we have the fact that $$I^\alpha_\beta = \left[T^\alpha_a I^a_b T_\beta^b\right]$$
-Returning to matrix notation, I is transformed by:
-$$I' = T I T^{-1}$$
 \end{document}
 
